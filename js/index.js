@@ -24,8 +24,9 @@ backChange.addEventListener('wheel', () => {
     backChange.style.backgroundColor = 'yellow';
 });
 
-button1.addEventListener('click', () => {
+button1.addEventListener('click', (event) => {
     btnborder.style.border = '3px dashed blue';
+    event.stopPropagation();
 });
 
 button1.addEventListener('dblclick', () => {
@@ -50,4 +51,7 @@ image[0].addEventListener('contextmenu', () => {
 
 image[1].addEventListener('mousemove', () => {
     image[0].style.display = '';
+});
+backChange.addEventListener('click', () => {
+    backChange.style.backgroundColor = 'red';
 });
