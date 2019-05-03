@@ -55,3 +55,6 @@ image[1].addEventListener('mousemove', () => {
 backChange.addEventListener('click', () => {
     backChange.style.backgroundColor = 'red';
 });
+document.querySelectorAll('a').addEventListener('click', (e) => {
+    e.preventDefault();
+});
