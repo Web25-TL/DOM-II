@@ -24,9 +24,9 @@ backChange.addEventListener('wheel', () => {
     backChange.style.backgroundColor = 'yellow';
 });
 
-button1.addEventListener('click', (event) => {
+button1.addEventListener('click', (e) => {
     btnborder.style.border = '3px dashed blue';
-    event.stopPropagation();
+    e.stopPropagation();
 });
 
 button1.addEventListener('dblclick', () => {
@@ -55,6 +55,11 @@ image[1].addEventListener('mousemove', () => {
 backChange.addEventListener('click', () => {
     backChange.style.backgroundColor = 'red';
 });
-document.querySelectorAll('a').addEventListener('click', (e) => {
-    e.preventDefault();
-});
+const defaultPre = document.querySelectorAll('.nav-link');
+
+for (let i = 0; i < defaultPre.length; i++) {
+    defaultPre[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(e);
+    });
+};
