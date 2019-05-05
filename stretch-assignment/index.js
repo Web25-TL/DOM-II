@@ -20,20 +20,26 @@ blue.addEventListener('click', function() {
 red.addEventListener('click', function() {
     block.prepend(red);
 });
-function right(element) {
-    let cnt = 10;
-    element.style.marginLeft = cnt + 'px';
-    cnt++;
+
+let timer;
+
+function animate(element) {
+    element.addEventListener('mousedown', function () {
+        let cnt = 10;
+        timer = setInterval(move, 50);
+        function move() {
+            cnt = cnt + 1;
+            element.style.marginLeft = cnt + 'px'
+        }
+    });
+
+    element.addEventListener('mouseup', function () {
+        clearInterval(timer);
+        element.style.marginLeft = 10 + 'px';
+    });
 };
-
-
-gray.addEventListener('mousedown', function() {
-    let cnt = 10;
-    setInterval(function() {
-        gray.style.marginLeft = cnt + 'px';
-        cnt++;
-    }, 10000);
-});
-gray.addEventListener('mouseup', function() {
-    clearInterval();
-});
+animate(red);
+animate(blue);
+animate(green);
+animate(pink);
+animate(gray);
